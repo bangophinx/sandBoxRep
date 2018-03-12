@@ -1,0 +1,32 @@
+<h3>Users</h3>
+<ul *ngFor="let user of users" class="card list-group">
+  <h4 class="card-body list-group-item-primary" [ngClass]="{'bg-secondary': user.active===false}">
+    {{user.fName}} {{user.lName}}
+    <button (click)="user.hide = !user.hide" class="btn btn-sm btn-danger float-right m-0">
+      <i class="fa fa-plus" *ngIf="user.hide!=true"></i>
+      <i class="fa fa-minus" *ngIf="user.hide===true"></i>
+    </button>
+  </h4>
+  <li class="card-body" *ngIf="user.hide===true" [ngStyle]="{'list-style-type':'none' }">
+    Email: {{user.email}}
+  </li>
+  <li class="card-body" [hidden]="!user.hide" [ngStyle]="{'list-style-type':'none' }">
+    Joined: {{user.joined}}
+  </li>
+</ul>
+<button class="btn btn-info btn-lg btn-block mb-3" 
+(click)="showUserForm=!showUserForm">
+  Add User</button>
+
+<form *ngIf="showUserForm === true" >
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Enter First Name" name="fName" [(ngModel)] = "user.fName" >
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Enter Last Name" name="lName" [(ngModel)] = "user.lName">
+  </div>
+  <div class="form-group">
+      <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)] = "user.email">
+    </div>
+  <button type="submit" class="btn btn-block btn-lg btn-primary" (click)="addUser()">Submit</button>
+</form>

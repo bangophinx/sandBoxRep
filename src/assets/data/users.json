@@ -1,0 +1,20 @@
+[
+  { "fName": "Evans", 
+    "lName": "Chikarakara",
+    "email": "bangophinx@gmail.com",
+    "joined": "20-12-2000"
+  },
+  {
+    "fName": "Freda", 
+    "lName": "Mills",
+    "email": "b@g.c", 
+    "active": false,
+    "joied": "2012-04-23T18:25:43"
+  },
+  {
+    "fName": "Papa", 
+    "lName": "Tills",
+    "email": "g@gr.c", 
+    "active": true
+  }
+]
