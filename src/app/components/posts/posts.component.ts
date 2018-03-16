@@ -58,13 +58,10 @@ export class PostsComponent implements OnInit {
         console.log('not true');
       }
     });
-    
-
   }
 
   onPostClick(post) {
     this.router.navigate(["/posts", post.id]);
   }
-
 
 }
