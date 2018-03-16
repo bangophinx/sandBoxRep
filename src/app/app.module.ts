@@ -1,23 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { UsersComponent } from './components/users/users.component';
 import { UsersService } from './services/users.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from "@angular/forms";
-import { PostsComponent } from './components/posts/posts.component';
 import { PostsService } from './services/posts.service';
+import { HomeComponent } from './components/home/home.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    PostsComponent
+    HomeComponent,
+    routingComponents,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

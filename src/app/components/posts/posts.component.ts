@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PostsService } from '../../services/posts.service';
 import { IPost } from '../../models/ipost';
 
@@ -16,7 +17,7 @@ export class PostsComponent implements OnInit {
   };
 
 
-  constructor(private postService: PostsService) { }
+  constructor(private postService: PostsService, private router: Router) { }
 
   ngOnInit() {
     this.postService.getPosts().subscribe(posts =>
@@ -46,5 +47,24 @@ export class PostsComponent implements OnInit {
       body: ""
     };
   }
+
+  onDelete(postId) {
+    this.postService.removePost(postId).subscribe();
+    this.posts.forEach((post, i) => {
+      if (post.id === postId) {
+        this.posts.splice(i, 1);
+      }
+      else{
+        console.log('not true');
+      }
+    });
+    
+
+  }
+
+  onPostClick(post) {
+    this.router.navigate(["/posts", post.id]);
+  }
+
 
 }

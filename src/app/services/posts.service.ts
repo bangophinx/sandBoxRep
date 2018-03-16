@@ -20,7 +20,17 @@ export class PostsService {
 
   addPost(post: IPost):Observable<IPost>{
     return this.http.post<IPost>(this.postsUrl, post, httpOptions)
-  } 
+  }
+  
+  getPostDetail(id: number): Observable<IPost>{
+    const url = `${this.postsUrl}/${id}`;
+    return this.http.get<IPost>(url);
+  }
+
+  removePost(id: number){
+    const deleteUrl = `${this.postsUrl}/${id}`; 
+    return this.http.delete(deleteUrl, httpOptions);
+  }
 
 
 
